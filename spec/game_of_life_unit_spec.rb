@@ -12,18 +12,6 @@ describe GameOfLife do
     end
   end
 
-  context '#living_neighbours_count' do
-    it 'returns 0 given no living neighbours' do
-      dead_cells = [
-        [:dead, :dead, :dead],
-        [:dead, :dead, :dead],
-        [:dead, :dead, :dead]
-      ]
-
-      expect(subject.living_neighbours_count(:dead, dead_cells)).to be_zero
-    end
-  end
-
   context '#number_of_living_neighbours' do
     it 'returns 0 given the middle cell in a dead grid' do
       target_cell = :dead
