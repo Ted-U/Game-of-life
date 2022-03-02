@@ -14,7 +14,12 @@ class GameOfLife
     cell
   end
 
+  # oops got the signature wrong
   def living_neighbours_count(cell, grid)
+    0
+  end
+
+  def number_of_living_neighbours(cell_row, cell_column, grid)
     0
   end
 end
