@@ -4,8 +4,7 @@ class GameOfLife
 
     new_grid.each do |row|
       row.each do |cell|
-        # living_neighbours_count(cell, new_grid)
-        living_neighbours_count = 0
+        living_neighbours_count = living_neighbours_count(cell, new_grid)
         new_state_of_cell(cell, living_neighbours_count)
       end
     end
@@ -13,5 +12,9 @@ class GameOfLife
 
   def new_state_of_cell(cell, living_neighbours_count)
     cell
+  end
+
+  def living_neighbours_count(cell, grid)
+    0
   end
 end

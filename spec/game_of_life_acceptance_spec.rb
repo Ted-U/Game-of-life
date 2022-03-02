@@ -21,7 +21,7 @@ describe 'game of life' do
 
   context 'in a 5x5 grid' do
     context 'given a vertical line of 3 live cells' do
-      it 'it will change to a horizontal line of 3 live cells' do
+      xit 'it will change to a horizontal line of 3 live cells' do
         # arrange
         current_grid = [
           [ :dead, :dead, :dead, :dead, :dead ],
