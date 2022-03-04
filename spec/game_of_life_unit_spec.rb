@@ -168,6 +168,79 @@ describe GameOfLife do
         ).to eq(1)
       end
     end
+
+    context 'multiple living neighbours' do
+      it 'Returns 2 given the middle cell with 2 live neighbours - row ' do
+        target_cell = :dead
+
+        grid = [
+          [:dead, :dead,        :dead],
+          [:live, :target_cell, :live],
+          [:dead, :dead,        :dead]
+        ]
+
+        cell_row = 1
+        cell_column = 1
+
+        expect(
+          subject.number_of_living_neighbours(cell_row, cell_column, grid)
+        ).to eq(2)
+      end
+
+      it 'Returns 2 given the middle cell with 2 live neighbours - diagonal ' do
+        target_cell = :dead
+
+        grid = [
+          [:live, :dead,        :dead],
+          [:dead, :target_cell, :dead],
+          [:dead, :dead,        :live]
+        ]
+
+        cell_row = 1
+        cell_column = 1
+
+        expect(
+          subject.number_of_living_neighbours(cell_row, cell_column, grid)
+        ).to eq(2)
+      end
+
+      it 'Returns 8 given the middle cell with 8 live neighbours' do
+        target_cell = :dead
+
+        grid = [
+          [:live, :live,        :live],
+          [:live, :target_cell, :live],
+          [:live, :live,        :live]
+        ]
+
+        cell_row = 1
+        cell_column = 1
+
+        expect(
+          subject.number_of_living_neighbours(cell_row, cell_column, grid)
+        ).to eq(8)
+      end
+      it 'Returns 4 live nieghbours and ignores distant neighbours' do
+        target_cell = :dead
+
+  
+        grid = [
+        [ :dead, :dead,        :dead, :dead, :live ],
+        [ :live, :target_cell, :live, :dead, :live ],
+        [ :dead, :live,        :live, :dead, :dead ],
+        [ :dead, :dead,        :dead, :live, :dead ],
+        [ :dead, :dead,        :dead, :live, :dead ]
+        ]
+
+        cell_row = 1
+        cell_column = 1
+      
+
+        expect(
+          subject.number_of_living_neighbours(cell_row, cell_column, grid)
+        ).to eq(4)
+      end
+    end
   
   end
   end
